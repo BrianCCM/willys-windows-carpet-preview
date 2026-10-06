@@ -88,7 +88,7 @@ p{margin:0}
 .brand img{width:62px;height:62px;object-fit:contain}
 .brand-txt{display:block}
 .brand b{display:block;font-family:Fraunces,serif;font-weight:600;font-size:1.1rem;letter-spacing:-.025em;color:var(--ink);line-height:1.15}
-.brand span{display:block;font-size:.8rem;color:#7C8295}
+.brand-txt > span{display:block;font-size:.8rem;color:#7C8295}
 .nav{display:flex;gap:var(--s5);align-items:center}
 .nav a{text-decoration:none;font-size:1rem;color:#5A6175;padding:6px 2px;position:relative;transition:color .2s ease}
 .nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--gold);
@@ -103,8 +103,10 @@ p{margin:0}
 @media (max-width:900px){
   .nav{position:fixed;inset:98px 0 auto;background:var(--paper);border-bottom:1px solid var(--line);
     flex-direction:column;align-items:stretch;gap:0;padding:var(--s3) 20px var(--s5);
-    transform:translateY(-120%);transition:transform .4s var(--ease);box-shadow:var(--sh-3)}
-  .nav[data-open="true"]{transform:translateY(0)}
+    transform:translateY(calc(-100% - 120px));visibility:hidden;
+    transition:transform .4s var(--ease),visibility 0s linear .4s;box-shadow:var(--sh-3)}
+  .nav[data-open="true"]{transform:translateY(0);visibility:visible;
+    transition:transform .4s var(--ease),visibility 0s}
   .nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:1.08rem}
   .nav a::after{display:none}
   .menu-btn{display:flex}
