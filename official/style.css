@@ -27,6 +27,10 @@
   --accent-soft:#A9CFE3;  /* hairlines, bullets, stars */
   --accent-on:#FFFFFF;    /* text on an accent fill */
 
+  /* tan edge, straight off the logo outline. Pairs with the blue the way the badge does. */
+  --edge:#A28C5C;
+  --edge-strong:#8A7437;
+
   --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px;
   --s6:32px; --s7:48px; --s8:64px; --s9:96px; --s10:128px;
 
@@ -160,10 +164,10 @@ p{margin:0}
 .path{
   position:relative;display:flex;flex-direction:column;justify-content:flex-end;
   min-height:360px;padding:var(--s6);border-radius:var(--r-lg);overflow:hidden;isolation:isolate;
-  text-decoration:none;border:1px solid rgba(23,28,46,.17);background:var(--card);box-shadow:var(--sh-3);
+  text-decoration:none;border:2px solid var(--edge);background:var(--card);box-shadow:var(--sh-3);
   transition:transform .42s var(--ease),border-color .25s ease,box-shadow .42s var(--ease);
 }
-.path:hover{transform:translateY(-8px);border-color:rgba(23,28,46,.3);
+.path:hover{transform:translateY(-8px);border-color:var(--edge-strong);
   box-shadow:0 6px 14px rgba(23,28,46,.1), 0 36px 72px -20px rgba(23,28,46,.38)}
 .path:active{transform:translateY(-2px)}
 .path:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
