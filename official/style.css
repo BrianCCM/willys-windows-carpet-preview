@@ -28,6 +28,7 @@
   --accent-on:#FFFFFF;    /* text on an accent fill */
 
   /* tan edge, straight off the logo outline. Pairs with the blue the way the badge does. */
+  --star:#E0A526;        /* review stars read gold, not brand blue */
   --edge:#A28C5C;
   --edge-strong:#8A7437;
 
@@ -99,7 +100,7 @@ p{margin:0}
 /* ---------- header ---------- */
 .hdr{position:sticky;top:0;z-index:40;background:rgba(251,247,240,.88);
   backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.hdr-in{display:flex;align-items:center;gap:var(--s5);height:94px}
+.hdr-in{position:relative;display:flex;align-items:center;gap:var(--s5);height:94px}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none;margin-right:auto;
   border-radius:var(--r-sm);transition:transform .32s var(--ease)}
 .brand:hover{transform:translateY(-1px)}
@@ -158,8 +159,9 @@ p{margin:0}
 .hero .lede{margin-top:var(--s5);max-width:48ch}
 
 /* lead-in above the two choices */
-.funnel-q{font-family:Archivo,sans-serif;font-weight:700;font-size:clamp(1.1rem,1.6vw,1.3rem);
-  letter-spacing:-.02em;color:var(--accent);margin:0 0 var(--s4)}
+.funnel-q{font-family:Archivo,sans-serif;font-weight:800;font-size:clamp(1.65rem,2.9vw,2.3rem);
+  letter-spacing:-.03em;line-height:1.1;color:var(--accent);margin:0 0 var(--s4)}
+
 
 /* floating social proof, upper right of the hero */
 .proof-tag{
@@ -173,15 +175,15 @@ p{margin:0}
   box-shadow:0 6px 14px rgba(23,28,46,.1), 0 36px 72px -20px rgba(23,28,46,.38)}
 .proof-tag:active{transform:translateY(-1px)}
 .proof-tag:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-.proof-tag-stars{color:var(--accent);font-size:1.05rem;letter-spacing:1px;line-height:1;flex:none}
+.proof-tag-stars{color:var(--star);font-size:1.05rem;letter-spacing:1px;line-height:1;flex:none}
 .proof-tag-txt{display:block}
 .proof-tag-txt b{display:block;font-family:Archivo,sans-serif;font-weight:800;font-size:1.02rem;
   letter-spacing:-.025em;color:var(--ink);line-height:1.15;white-space:nowrap}
 .proof-tag-txt > span{display:block;margin-top:3px;font-size:.92rem;color:var(--accent);font-weight:600}
 .proof-tag svg{color:var(--accent);flex:none;transition:transform .36s var(--ease)}
 .proof-tag:hover svg{transform:translateX(4px)}
-@media (max-width:1100px){
-  .proof-tag{position:static;margin:var(--s5) 0 var(--s6);display:inline-flex}
+@media (max-width:1200px){
+  .proof-tag--hero{position:static;margin:var(--s5) 0 var(--s6);display:inline-flex}
 }
 
 /* funnel: the two paths into the site */
@@ -244,7 +246,7 @@ p{margin:0}
 @media (max-width:900px){ .reviews{grid-template-columns:1fr} }
 .review{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s5);
   box-shadow:var(--sh-1);display:flex;flex-direction:column;gap:var(--s3)}
-.stars{display:flex;gap:3px;color:var(--accent)}
+.stars{display:flex;gap:3px;color:var(--star)}
 .review p{font-size:1rem;line-height:1.62;color:var(--body)}
 .review footer{margin-top:auto;padding-top:var(--s3);border-top:1px solid var(--line);
   font-size:.88rem;color:var(--muted);font-weight:600}
@@ -421,3 +423,24 @@ p{margin:0}
 .ftr-bot{border-top:1px solid rgba(251,247,240,.15);padding-top:var(--s5);display:flex;
   justify-content:space-between;flex-wrap:wrap;gap:var(--s3);font-size:.88rem;color:rgba(251,247,240,.5)}
 .ftr-bot a{font-size:.88rem;color:rgba(251,247,240,.5)}
+
+/* ---------- centred review card in the sticky header ----------
+   Must come after the base .proof-tag rules: same specificity, so source order decides. */
+.proof-tag--hdr{
+  position:absolute;left:50%;right:auto;top:50%;transform:translate(-50%,-50%);
+  display:flex;align-items:center;gap:10px;max-width:none;
+  background:var(--card);border:1px solid var(--line-strong);border-radius:var(--r);
+  padding:8px 14px;box-shadow:var(--sh-1);text-decoration:none;white-space:nowrap;
+  transition:transform .32s var(--ease),box-shadow .32s var(--ease),border-color .2s ease;
+}
+.proof-tag--hdr:hover{transform:translate(-50%,-50%) translateY(-2px);
+  border-color:var(--edge);box-shadow:var(--sh-2)}
+.proof-tag--hdr:active{transform:translate(-50%,-50%)}
+.proof-tag--hdr:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.proof-tag--hdr .proof-tag-stars{font-size:.88rem;letter-spacing:.5px}
+.proof-tag--hdr .proof-tag-txt b{font-size:.86rem;white-space:nowrap}
+.proof-tag--hdr .proof-tag-txt > span{font-size:.78rem;margin-top:1px}
+
+/* one or the other, never both */
+@media (max-width:1240px){ .proof-tag--hdr{display:none} }
+@media (min-width:1241px){ .proof-tag--hero{display:none} }
