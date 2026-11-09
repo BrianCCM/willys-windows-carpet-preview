@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Holiday Carpet Cleaning in Cedar City | $50 a Room | Willy's Windows &amp; Carpet</title>
+<meta name="description" content="Professional carpet steam cleaning in Cedar City and Iron County, $50 a room. Get the house guest ready before the holidays. Free quote, no deposit.">
+<!-- Ad landing page. Kept out of the index on purpose so it does not compete with
+     the main site or get the holiday offer indexed after the campaign ends. -->
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#FBF7F0">
+<link rel="icon" href="../assets/logo-mark.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- ===================================================================
+     META PIXEL GOES HERE.
+     This page is the destination for a paid Meta campaign and there is no
+     pixel on it, so Meta cannot optimize delivery, build a lookalike, or
+     report a single conversion. Paste the base pixel code here and fire a
+     Lead event from the form's success branch and the call buttons (both
+     are marked in the script at the bottom). Willy's pixel id is not on
+     file, so nothing is stubbed in rather than shipping a wrong id.
+     =================================================================== -->
+
+<style>
+:root{
+  /* Palette is the official site's, token for token, so this page cannot
+     drift from willyswindowsandcarpet.com. Sampled from the logo. */
+  --paper:#FBF7F0; --tint:#EDF4F8; --card:#FFFFFF; --card-2:#F6FAFC;
+  --navy:#171C2E; --navy-2:#232A41;
+  --ink:#171C2E; --body:#4C5367; --muted:#6A7183;
+  --line:rgba(23,28,46,.12); --line-strong:rgba(23,28,46,.26);
+  --accent:#0E6E9C; --accent-mid:#1584BA; --accent-deep:#0B5C85;
+  --accent-soft:#A9CFE3; --accent-on:#FFFFFF;
+  --star:#E0A526; --edge:#A28C5C; --edge-strong:#8A7437;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px;
+  --s6:32px; --s7:48px; --s8:64px; --s9:96px; --s10:128px;
+  --r-sm:6px; --r:12px; --r-lg:20px; --r-pill:999px;
+  /* dark only, elevation only, never a colored glow */
+  --sh-1:0 1px 2px rgba(23,28,46,.07);
+  --sh-2:0 2px 5px rgba(23,28,46,.07), 0 12px 28px -10px rgba(23,28,46,.2);
+  --sh-3:0 4px 10px rgba(23,28,46,.09), 0 28px 60px -18px rgba(23,28,46,.3);
+  --ease:cubic-bezier(.22,1.1,.36,1);
+  --wrap:1120px;
+  --bar:0px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{
+  margin:0;background:var(--paper);color:var(--body);
+  font:400 17px/1.7 "Source Sans 3",ui-sans-serif,system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:var(--bar);
+}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:Archivo,ui-sans-serif,system-ui,sans-serif;color:var(--ink);margin:0;line-height:1.08;letter-spacing:-.03em}
+h1{font-weight:800}
+h2{font-weight:700;letter-spacing:-.025em}
+h3{font-weight:700;letter-spacing:-.02em;line-height:1.25}
+p{margin:0}
+a{color:var(--accent)}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px}
+
+/* grain, for depth. A repeated 180px tile rather than a full page SVG filter,
+   which on a mid range phone is a measurable scroll cost. */
+.grain{
+  position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.038;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:Archivo,sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em;
+  padding:16px 26px;border-radius:var(--r-pill);border:1px solid transparent;
+  text-decoration:none;cursor:pointer;
+  transition:transform .22s var(--ease), background-color .22s var(--ease), box-shadow .22s var(--ease), color .22s var(--ease);
+}
+.btn:active{transform:translateY(1px) scale(.985)}
+.btn:focus-visible{outline:3px solid var(--accent-deep);outline-offset:3px}
+.btn-primary{background:var(--accent);color:var(--accent-on);box-shadow:var(--sh-2)}
+.btn-primary:hover{background:var(--accent-deep);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+.btn-ghost:hover{background:var(--card);border-color:var(--ink);transform:translateY(-2px)}
+.btn-lg{font-size:19px;padding:19px 30px}
+.btn-block{display:flex;width:100%}
+
+/* ---------- header ---------- */
+header{
+  position:relative;z-index:10;background:var(--paper);
+  border-bottom:1px solid var(--line);
+}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand img{width:44px;height:44px;border-radius:9px}
+.brand-txt{display:flex;flex-direction:column;line-height:1.2}
+.brand-txt > span:first-child{font-family:Archivo,sans-serif;font-weight:700;font-size:16px;color:var(--ink);letter-spacing:-.02em}
+.brand-txt > span:last-child{font-size:13px;color:var(--muted)}
+.hd-call{display:none}
+@media (min-width:720px){ .hd-call{display:inline-flex} }
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(1100px 620px at 10% -14%, rgba(169,207,227,.30), transparent 62%),
+    radial-gradient(820px 520px at 102% 4%, rgba(162,140,92,.10), transparent 60%),
+    var(--paper);
+}
+.hero-in{display:grid;gap:var(--s6);padding:var(--s7) 0 var(--s6)}
+@media (min-width:980px){
+  .hero-in{grid-template-columns:1.04fr .96fr;align-items:center;gap:var(--s7);padding:var(--s9) 0 var(--s8)}
+}
+h1{font-size:clamp(34px,8.2vw,58px)}
+.hero p.lede{margin-top:var(--s4);font-size:clamp(17px,4.3vw,20px);max-width:36ch}
+.hero .price-line{color:var(--ink);font-weight:600}
+
+.proof{display:flex;align-items:center;gap:10px;margin-top:var(--s5);flex-wrap:wrap}
+.stars{color:var(--star);letter-spacing:2px;font-size:17px}
+.proof b{font-family:Archivo,sans-serif;font-weight:700;color:var(--ink)}
+.proof .note{color:var(--muted);font-size:15px}
+
+.cta-row{display:grid;gap:var(--s3);margin-top:var(--s6)}
+@media (min-width:560px){ .cta-row{grid-template-columns:auto auto;justify-content:start;gap:var(--s4)} }
+.cta-note{margin-top:var(--s3);font-size:15px;color:var(--muted)}
+
+/* hero photo: gradient overlay plus a color treatment layer, per house style */
+.shot{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-3);border:1px solid var(--line)}
+.shot img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.shot.wide img{aspect-ratio:3/2}
+.shot::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(23,28,46,.55), rgba(23,28,46,0) 52%);
+}
+.shot::before{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:var(--accent-deep);mix-blend-mode:multiply;opacity:.10;
+}
+.shot figcaption{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:var(--s5) var(--s5) var(--s5);
+  color:#fff;font-size:15px;line-height:1.5;
+}
+.shot figcaption b{display:block;font-family:Archivo,sans-serif;font-weight:700;font-size:18px;letter-spacing:-.02em}
+
+/* ---------- countdown strip ---------- */
+.strip{background:var(--navy);color:#fff;position:relative;z-index:2}
+.strip-in{
+  display:flex;align-items:center;justify-content:center;gap:var(--s4);
+  padding:var(--s4) 0;text-align:center;flex-wrap:wrap;
+}
+.strip b{font-family:Archivo,sans-serif;font-weight:700;color:#fff;font-size:18px;letter-spacing:-.02em}
+.strip span{color:#C9CEDB;font-size:15.5px}
+.cd{
+  display:inline-flex;align-items:baseline;gap:7px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  padding:6px 14px;border-radius:var(--r-pill);
+}
+.cd i{font-style:normal;font-family:Archivo,sans-serif;font-weight:800;font-size:20px;color:#fff}
+
+/* ---------- sections ---------- */
+section{position:relative}
+.band{background:var(--tint)}
+.sec{padding:var(--s8) 0}
+@media (min-width:980px){ .sec{padding:var(--s9) 0} }
+h2{font-size:clamp(27px,6.4vw,40px)}
+.sec > .wrap > p.sub{margin-top:var(--s4);max-width:52ch;font-size:17.5px}
+
+/* ---------- the price card ---------- */
+.calc{
+  background:var(--card);border:1px solid var(--line);border-top:3px solid var(--edge);
+  border-radius:var(--r-lg);box-shadow:var(--sh-2);
+  padding:var(--s6) var(--s5);margin-top:var(--s6);
+}
+@media (min-width:860px){ .calc{padding:var(--s7)} }
+.calc h3{font-size:21px}
+.example{
+  margin-top:var(--s5);padding:var(--s5);border-radius:var(--r);
+  background:var(--card-2);border:1px solid var(--line);
+}
+.ex-rooms{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s3)}
+.ex-rooms li{
+  list-style:none;font-size:14px;color:var(--ink);background:var(--paper);
+  border:1px solid var(--line);border-radius:var(--r-pill);padding:4px 11px;white-space:nowrap;
+}
+.ex-sum{
+  display:flex;align-items:baseline;justify-content:space-between;gap:var(--s4);
+  margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--line);flex-wrap:wrap;
+}
+.ex-sum span{font-size:15.5px;color:var(--muted)}
+.ex-sum b{font-family:Archivo,sans-serif;font-weight:800;font-size:34px;color:var(--accent);letter-spacing:-.03em}
+
+.stepper{margin-top:var(--s6);padding-top:var(--s5);border-top:1px solid var(--line)}
+.stepper h3{font-size:18px}
+.step-row{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);margin-top:var(--s4);flex-wrap:wrap}
+.step-ctl{display:flex;align-items:center;gap:var(--s3)}
+.step-btn{
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--line-strong);
+  background:var(--card);color:var(--ink);font-size:23px;line-height:1;cursor:pointer;
+  font-family:Archivo,sans-serif;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .2s var(--ease), background-color .2s var(--ease), border-color .2s var(--ease);
+}
+.step-btn:hover{background:var(--tint);border-color:var(--ink);transform:translateY(-1px)}
+.step-btn:active{transform:translateY(1px) scale(.95)}
+.step-btn:focus-visible{outline:3px solid var(--accent-deep);outline-offset:3px}
+.step-btn[disabled]{opacity:.35;cursor:not-allowed}
+.step-btn[disabled]:hover{background:var(--card);border-color:var(--line-strong);transform:none}
+#roomCount{font-family:Archivo,sans-serif;font-weight:800;font-size:28px;color:var(--ink);min-width:2.1ch;text-align:center;letter-spacing:-.02em}
+.step-lbl{font-size:15.5px;color:var(--muted)}
+.step-total{
+  display:flex;flex-direction:row-reverse;align-items:baseline;
+  justify-content:space-between;gap:var(--s4);width:100%;
+  margin-top:var(--s4);padding-top:var(--s4);border-top:1px solid var(--line);
+}
+@media (min-width:600px){
+  .step-total{display:block;width:auto;text-align:right;margin-top:0;padding-top:0;border-top:0}
+}
+.step-total b{display:block;font-family:Archivo,sans-serif;font-weight:800;font-size:34px;color:var(--accent);letter-spacing:-.03em;line-height:1.1}
+.step-total span{font-size:14.5px;color:var(--muted)}
+.fine{margin-top:var(--s4);font-size:14.5px;color:var(--muted);line-height:1.6}
+
+/* ---------- value list ---------- */
+.vals{display:grid;gap:var(--s4);margin-top:var(--s6);padding:0;list-style:none}
+@media (min-width:760px){ .vals{grid-template-columns:repeat(2,1fr);gap:var(--s5)} }
+.vals li{
+  display:flex;gap:var(--s4);background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r);padding:var(--s5);box-shadow:var(--sh-1);
+}
+.vals .tick{
+  flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--accent);
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+.vals .tick svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.vals h3{font-size:17.5px}
+.vals p{margin-top:5px;font-size:15.5px;line-height:1.65}
+
+/* ---------- proof photos ---------- */
+.shots{display:grid;gap:var(--s5);margin-top:var(--s6);align-items:start}
+@media (min-width:760px){ .shots{grid-template-columns:repeat(2,1fr)} }
+
+/* ---------- reviews ---------- */
+.revs{display:grid;gap:var(--s4);margin-top:var(--s6);padding:0;list-style:none}
+@media (min-width:760px){ .revs{grid-template-columns:repeat(2,1fr);gap:var(--s5)} }
+.rev{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s5);box-shadow:var(--sh-1)}
+.rev-head{display:flex;align-items:center;gap:11px}
+.rev-av{
+  width:36px;height:36px;border-radius:50%;background:var(--accent-soft);color:var(--accent-deep);
+  font-family:Archivo,sans-serif;font-weight:700;font-size:16px;
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+}
+.rev-who{display:flex;flex-direction:column;line-height:1.3;flex:1 1 auto;min-width:0}
+.rev-who b{font-family:Archivo,sans-serif;font-weight:700;font-size:15.5px;color:var(--ink)}
+.rev-who span{font-size:13.5px;color:var(--muted)}
+.rev .stars{font-size:14px;margin-top:var(--s3)}
+.rev p{margin-top:var(--s2);font-size:15.5px;line-height:1.68}
+.rev-foot{margin-top:var(--s5);font-size:15px;color:var(--muted)}
+
+/* ---------- form ---------- */
+.form-sec{background:var(--navy);color:#fff}
+.form-sec h2{color:#fff}
+.form-sec > .wrap > p.sub{color:#C9CEDB}
+.form-grid{display:grid;gap:var(--s6);margin-top:var(--s6)}
+@media (min-width:920px){ .form-grid{grid-template-columns:1.1fr .9fr;gap:var(--s7);align-items:start} }
+form{background:var(--card);border-radius:var(--r-lg);padding:var(--s5);box-shadow:var(--sh-3)}
+@media (min-width:560px){ form{padding:var(--s6)} }
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:var(--s4)}
+.field label{font-family:Archivo,sans-serif;font-weight:600;font-size:14.5px;color:var(--ink)}
+.field input,.field select,.field textarea{
+  font:400 16.5px/1.5 "Source Sans 3",sans-serif;color:var(--ink);
+  background:var(--paper);border:1px solid var(--line-strong);border-radius:var(--r-sm);
+  padding:13px 14px;width:100%;
+  transition:border-color .2s var(--ease);
+}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:var(--ink)}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{
+  outline:3px solid var(--accent);outline-offset:1px;border-color:var(--accent);
+}
+.field textarea{resize:vertical;min-height:86px}
+.row2{display:grid;gap:var(--s4)}
+@media (min-width:560px){ .row2{grid-template-columns:1fr 1fr} }
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-note{margin-top:var(--s4);font-size:14.5px;color:var(--muted);line-height:1.6}
+.form-ok{text-align:center;padding:var(--s6) var(--s4)}
+.form-ok h3{font-size:22px}
+.form-ok p{margin-top:var(--s3);font-size:16px}
+.aside-call{
+  background:var(--navy-2);border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--r-lg);padding:var(--s5);
+}
+.aside-call h3{color:#fff;font-size:19px}
+.aside-call p{color:#C9CEDB;font-size:15.5px;margin-top:var(--s3)}
+.aside-num{
+  display:inline-flex;margin-top:var(--s4);font-family:Archivo,sans-serif;font-weight:800;
+  font-size:clamp(26px,7vw,32px);color:#fff;text-decoration:none;letter-spacing:-.02em;
+  border-bottom:2px solid var(--accent-soft);padding-bottom:2px;
+  transition:color .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease);
+}
+.aside-num:hover{color:var(--accent-soft);transform:translateY(-1px)}
+.aside-num:focus-visible{outline:3px solid var(--accent-soft);outline-offset:4px}
+.aside-list{margin:var(--s5) 0 0;padding:0;list-style:none;display:grid;gap:var(--s3)}
+.aside-list li{display:flex;gap:10px;color:#C9CEDB;font-size:15.5px;line-height:1.6}
+.aside-list svg{flex:0 0 auto;width:17px;height:17px;margin-top:5px;stroke:var(--accent-soft);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- footer ---------- */
+footer{background:var(--navy);color:#C9CEDB;border-top:1px solid rgba(255,255,255,.1)}
+.ft{display:grid;gap:var(--s5);padding:var(--s7) 0 var(--s6)}
+@media (min-width:760px){ .ft{grid-template-columns:1.3fr 1fr;gap:var(--s7)} }
+.ft a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+.ft a:hover{border-bottom-color:#fff}
+.ft a:focus-visible{outline:3px solid var(--accent-soft);outline-offset:3px}
+.ft h3{color:#fff;font-size:15.5px;font-weight:600;font-family:"Source Sans 3",sans-serif;letter-spacing:0}
+.ft-list{margin:var(--s2) 0 0;padding:0;list-style:none;display:grid;font-size:15.5px}
+.ft-list a{display:inline-block;padding:9px 0}
+.ft-base{
+  display:flex;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;
+  padding:var(--s4) 0 var(--s6);border-top:1px solid rgba(255,255,255,.1);font-size:14px;
+}
+
+/* ---------- sticky mobile call bar ---------- */
+.callbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(251,247,240,.94);
+  -webkit-backdrop-filter:saturate(1.3) blur(10px);backdrop-filter:saturate(1.3) blur(10px);
+  border-top:1px solid var(--line);
+  box-shadow:0 -6px 20px -8px rgba(23,28,46,.28);
+  display:flex;gap:10px;
+}
+.callbar .btn{flex:1 1 0;font-size:16px;padding:14px 14px;white-space:nowrap}
+.callbar .btn:first-child{flex:1.55 1 0}
+@media (min-width:720px){ .callbar{display:none} }
+
+/* reveal, transform and opacity only */
+.rise{opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease), transform .6s var(--ease)}
+.rise.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){ .rise{opacity:1;transform:none} }
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap hd">
+    <a class="brand" href="#top">
+      <img src="../assets/logo-mark.webp" alt="Willy's Windows &amp; Carpet" width="44" height="44">
+      <span class="brand-txt">
+        <span>Willy's Windows &amp; Carpet</span>
+        <span>Cedar City, Utah</span>
+      </span>
+    </a>
+    <a class="btn btn-primary hd-call" href="tel:4353834220" data-call>435-383-4220</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div>
+        <h1>Hosting this year? Start with the carpet.</h1>
+        <p class="lede">
+          Professional steam cleaning across Cedar City and Iron County at
+          <span class="price-line">$50 a room</span>. Book now and the carpets are
+          done well before anyone knocks.
+        </p>
+
+        <div class="proof">
+          <span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <b>5.0</b>
+          <span class="note">from 20 Google reviews</span>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" href="tel:4353834220" data-call>
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+            Call 435-383-4220
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#quote">Get a free quote</a>
+        </div>
+        <p class="cta-note">Free quote, no deposit and no obligation. We usually reply the same day.</p>
+      </div>
+
+      <figure class="shot wide" style="margin:0">
+        <img src="../assets/carpet-clean.webp"
+             alt="A carpet cleaning wand mid pass, leaving a visibly brighter stripe behind it"
+             width="900" height="675" fetchpriority="high">
+        <figcaption>
+          <b>Hot water extraction</b>
+          Soft water on every job, so the dirt actually leaves instead of drying back in.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="wrap strip-in">
+      <span class="cd" id="cdWrap" hidden><i id="cdDays">0</i> <span id="cdUnit">days</span></span>
+      <b id="cdLabel">The calendar fills up fast before the holidays</b>
+      <span>Carpets booked this week are done well before guests arrive.</span>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>$50 a room, and you can do the math before you call</h2>
+      <p class="sub">
+        No square footage puzzles and no in home sales visit to get a number.
+        Rooms are $50 each, so the price is the same whether you work it out here or we do.
+      </p>
+
+      <div class="calc rise">
+        <h3>A typical Cedar City home</h3>
+        <div class="example">
+          <p style="font-size:15.5px">Four bedrooms, a family room and a dining room.</p>
+          <ul class="ex-rooms">
+            <li>Bedroom</li><li>Bedroom</li><li>Bedroom</li><li>Bedroom</li>
+            <li>Family room</li><li>Dining room</li>
+          </ul>
+          <div class="ex-sum">
+            <span>6 rooms at $50 each</span>
+            <b>$300</b>
+          </div>
+        </div>
+
+        <div class="stepper">
+          <h3>Work out your own</h3>
+          <div class="step-row">
+            <div class="step-ctl">
+              <button class="step-btn" type="button" id="roomMinus" aria-label="One room fewer">&minus;</button>
+              <span id="roomCount" aria-live="polite" aria-atomic="true">6</span>
+              <button class="step-btn" type="button" id="roomPlus" aria-label="One room more">+</button>
+              <span class="step-lbl">rooms</span>
+            </div>
+            <div class="step-total">
+              <b id="roomTotal">$300</b>
+              <span>estimated total</span>
+            </div>
+          </div>
+          <p class="fine">
+            Stairs, hallways and landings are quoted separately, so just mention them when
+            you call and we will add them to the number. Tile is also $50 a room.
+          </p>
+        </div>
+
+        <a class="btn btn-primary btn-lg btn-block" href="tel:4353834220" data-call style="margin-top:var(--s6)">
+          Call for your spot
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec band">
+    <div class="wrap">
+      <h2>What you are paying for</h2>
+      <ul class="vals">
+        <li>
+          <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <div>
+            <h3>A real steam clean</h3>
+            <p>Hot water extraction that pulls the stains, grime and soil up and out of the pile, rather than scrubbing them further in.</p>
+          </div>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <div>
+            <h3>Soft water on every job</h3>
+            <p>Cedar City water is hard enough to leave residue behind that attracts dirt straight back. We run soft water on every job, so the carpet stays clean after we leave.</p>
+          </div>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <div>
+            <h3>A price before we start</h3>
+            <p>You know the number when you book. No deposit and nothing to sign, so you can decide with the price in front of you.</p>
+          </div>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <div>
+            <h3>Someone local</h3>
+            <p>Willy's is a Cedar City business with 20 five star Google reviews from your neighbors, not a franchise routing your call to a call center.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>What it actually looks like</h2>
+      <p class="sub">Both of these are Willy's own work, not stock photography.</p>
+      <div class="shots">
+        <figure class="shot rise" style="margin:0">
+          <img src="../assets/ba-rug.webp" alt="The same rug before and after cleaning, the cleaned half visibly brighter" width="800" height="600" loading="lazy">
+          <figcaption><b>Before and after</b>The same rug, one pass apart.</figcaption>
+        </figure>
+        <figure class="shot rise" style="margin:0">
+          <img src="../assets/carpet-half-clean.webp" alt="A bedroom carpet part way through a steam clean" width="800" height="600" loading="lazy">
+          <figcaption><b>Part way through</b>A job in progress, straight off his camera.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec band">
+    <div class="wrap">
+      <h2>Your neighbors have already booked him</h2>
+      <ul class="revs">
+        <li class="rev">
+          <div class="rev-head">
+            <span class="rev-av" aria-hidden="true">A</span>
+            <span class="rev-who"><b>Adriana Gervasoni</b><span class="rv-date" data-t="1788042272"></span></span>
+          </div>
+          <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>Fast and efficient carpet cleaning! The best price you will find in cedar city. Did a great job !</p>
+        </li>
+        <li class="rev">
+          <div class="rev-head">
+            <span class="rev-av" aria-hidden="true">D</span>
+            <span class="rev-who"><b>Dante Vega-Lopez</b><span class="rv-date" data-t="1780503133"></span></span>
+          </div>
+          <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>Will is awesome! Super great to work with personally and professionally. He managed to get the dog pee stains out of my carpets.</p>
+        </li>
+        <li class="rev">
+          <div class="rev-head">
+            <span class="rev-av" aria-hidden="true">M</span>
+            <span class="rev-who"><b>Macon Lealao</b><span class="rv-date" data-t="1788043967"></span></span>
+          </div>
+          <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>So happy with my experience with Willys! Austin came and cleaned my sofa and rug and I was blown away by how clean he got them! My sofa was so stained from my kids we were about to throw it away and figured we had nothing to lose by getting it professionally cleaned. Honestly my expectations were low and I was SO HAPPY with the results. Worth every penny</p>
+        </li>
+        <li class="rev">
+          <div class="rev-head">
+            <span class="rev-av" aria-hidden="true">V</span>
+            <span class="rev-who"><b>Virene Shaffer</b><span class="rv-date" data-t="1791996125"></span></span>
+          </div>
+          <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>These guys are the best in town! So professional and great pricing. They cleaned my couches and carpets and they look brand new!</p>
+        </li>
+      </ul>
+      <p class="rev-foot">
+        5.0 across
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Google&amp;query_place_id=ChIJ84gx9CuwakkRn_tHUdso5xY" target="_blank" rel="noopener">20 Google reviews</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="sec form-sec" id="quote">
+    <div class="wrap">
+      <h2>Get your holiday spot</h2>
+      <p class="sub">Tell us how many rooms and we will come back with a time. Calling is fastest if you want a specific day.</p>
+
+      <div class="form-grid">
+        <form id="quoteForm" action="https://formspree.io/f/xnpjggwb" method="POST">
+          <input type="hidden" name="_subject" value="Holiday carpet quote (Meta ad landing page)">
+          <input type="hidden" name="source" value="Holiday Meta ad landing page">
+          <div class="hp" aria-hidden="true">
+            <label for="_gotcha">Leave this empty</label>
+            <input id="_gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="435-555-0100" required>
+            </div>
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="rooms">How many rooms</label>
+              <input id="rooms" name="rooms" type="number" min="1" max="30" step="1" value="6" inputmode="numeric" required>
+            </div>
+            <div class="field">
+              <label for="town">Town</label>
+              <input id="town" name="town" type="text" autocomplete="address-level2" placeholder="Cedar City">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="notes">Anything we should know</label>
+            <textarea id="notes" name="notes" placeholder="Stairs, pet stains, a date you are working towards."></textarea>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-block" type="submit" id="submitBtn">Send my quote request</button>
+          <p class="form-note">We usually reply the same day. If the form gives you any trouble, call <a href="tel:4353834220" data-call>435-383-4220</a> and we will take your details over the phone.</p>
+        </form>
+
+        <aside class="aside-call">
+          <h3>Rather just call?</h3>
+          <p>Quotes over the phone take a couple of minutes. We will walk the job with you and give you the number before you commit to anything.</p>
+          <a class="aside-num" href="tel:4353834220" data-call>435-383-4220</a>
+          <ul class="aside-list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>$50 a room, quoted before we start</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Cedar City and Iron County</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Carpet, tile and upholstery</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>5.0 from 20 Google reviews</span></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div>
+        <h3 style="font-family:Archivo,sans-serif;font-weight:700;font-size:17px;color:#fff;letter-spacing:-.02em">Willy's Windows &amp; Carpet</h3>
+        <p style="margin-top:var(--s3);font-size:15.5px;max-width:40ch">
+          Window, carpet and upholstery cleaning for Cedar City and Iron County.
+        </p>
+      </div>
+      <div>
+        <h3>Get in touch</h3>
+        <ul class="ft-list">
+          <li><a href="tel:4353834220" data-call>435-383-4220</a></li>
+          <li><a href="mailto:Willyswindowsandcleaning@gmail.com">Willyswindowsandcleaning@gmail.com</a></li>
+          <li><a href="https://willyswindowsandcarpet.com">willyswindowsandcarpet.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap ft-base" style="padding-left:0;padding-right:0">
+      <span>&copy; <span id="yr">2026</span> Willy's Windows &amp; Carpet. All rights reserved.</span>
+      <span>Site by <a href="https://cedarcitymarketing.com">Cedar City Marketing</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-primary" href="tel:4353834220" data-call>Call 435-383-4220</a>
+  <a class="btn btn-ghost" href="#quote">Free quote</a>
+</div>
+
+<script>
+(function(){
+  var d = document;
+
+  /* The sticky bar covers the bottom of the page on phones, so reserve its
+     height instead of letting it sit on top of the last element. */
+  function bar(){
+    var el = d.querySelector('.callbar');
+    var h = (el && getComputedStyle(el).display !== 'none') ? el.offsetHeight : 0;
+    d.documentElement.style.setProperty('--bar', h + 'px');
+  }
+  bar();
+  addEventListener('resize', bar, { passive:true });
+
+  var y = d.getElementById('yr'); if (y) y.textContent = new Date().getFullYear();
+
+  /* ---- countdown ------------------------------------------------------
+     A real date, not a fake timer. It counts to whichever holiday is next
+     and hides itself once the last one passes, so the page can never claim
+     urgency it cannot back up. Update HOLIDAYS for next season. */
+  var HOLIDAYS = [
+    { name:'Thanksgiving', date:'2026-11-26' },
+    { name:'Christmas',    date:'2026-12-25' }
+  ];
+  (function(){
+    var wrap = d.getElementById('cdWrap'), label = d.getElementById('cdLabel');
+    if (!wrap || !label) return;
+    var today = new Date(); today.setHours(0,0,0,0);
+    for (var i = 0; i < HOLIDAYS.length; i++) {
+      var p = HOLIDAYS[i].date.split('-');
+      var when = new Date(+p[0], +p[1] - 1, +p[2]);
+      var days = Math.round((when - today) / 86400000);
+      if (days < 0) continue;
+      if (days === 0) { label.textContent = HOLIDAYS[i].name + ' is today'; return; }
+      d.getElementById('cdDays').textContent = days;
+      d.getElementById('cdUnit').textContent = days === 1 ? 'day' : 'days';
+      label.textContent = 'until ' + HOLIDAYS[i].name;
+      wrap.hidden = false;
+      return;
+    }
+  })();
+
+  /* ---- room stepper ---- */
+  (function(){
+    var PER_ROOM = 50, MIN = 1, MAX = 20, n = 6;
+    var out = d.getElementById('roomCount'),
+        tot = d.getElementById('roomTotal'),
+        minus = d.getElementById('roomMinus'),
+        plus = d.getElementById('roomPlus'),
+        field = d.getElementById('rooms');
+    if (!out || !tot) return;
+    function draw(){
+      out.textContent = n;
+      tot.textContent = '$' + (n * PER_ROOM).toLocaleString('en-US');
+      minus.disabled = n <= MIN;
+      plus.disabled = n >= MAX;
+      // keep the form in step, so what they worked out is what they send
+      if (field) field.value = n;
+    }
+    minus.addEventListener('click', function(){ if (n > MIN) { n--; draw(); } });
+    plus.addEventListener('click', function(){ if (n < MAX) { n++; draw(); } });
+    if (field) field.addEventListener('input', function(){
+      var v = parseInt(field.value, 10);
+      if (!isNaN(v) && v >= MIN && v <= MAX) { n = v; out.textContent = n; tot.textContent = '$' + (n*PER_ROOM).toLocaleString('en-US'); minus.disabled = n<=MIN; plus.disabled = n>=MAX; }
+    });
+    draw();
+  })();
+
+  /* ---- reveal on scroll, transform and opacity only ---- */
+  (function(){
+    var els = [].slice.call(d.querySelectorAll('.rise'));
+    if (!els.length) return;
+    if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin:'0px 0px -8% 0px', threshold:.08 });
+    els.forEach(function(e){ io.observe(e); });
+  })();
+
+  /* ---- relative review dates, so they never go stale ---- */
+  (function(){
+    var now = Date.now()/1000;
+    [].forEach.call(d.querySelectorAll('.rv-date'), function(el){
+      var t = parseInt(el.getAttribute('data-t'), 10); if (!t) return;
+      var k = Math.floor((now - t)/86400), s;
+      if (k < 1) s = 'today'; else if (k < 2) s = 'yesterday';
+      else if (k < 7) s = k + ' days ago';
+      else if (k < 14) s = 'a week ago';
+      else if (k < 31) s = Math.floor(k/7) + ' weeks ago';
+      else if (k < 60) s = 'a month ago';
+      else if (k < 365) s = Math.floor(k/30) + ' months ago';
+      else s = Math.floor(k/365) === 1 ? 'a year ago' : Math.floor(k/365) + ' years ago';
+      el.textContent = s;
+    });
+  })();
+
+  /* ---- form ---- */
+  (function(){
+    var form = d.getElementById('quoteForm');
+    if (!form || !window.fetch) return;   // no fetch, fall back to a normal POST
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var btn = d.getElementById('submitBtn');
+      btn.disabled = true; btn.textContent = 'Sending...';
+      fetch(form.action, { method:'POST', body:new FormData(form), headers:{ Accept:'application/json' } })
+        .then(function(r){
+          if (!r.ok) throw new Error('bad response');
+          // META PIXEL: fire the Lead event here.
+          form.innerHTML =
+            '<div class="form-ok"><h3>Got it, thank you.</h3>' +
+            '<p>We will come back to you with a time, usually the same day. ' +
+            'If you would rather lock a day in now, call <a href="tel:4353834220">435-383-4220</a>.</p></div>';
+        })
+        .catch(function(){
+          btn.disabled = false; btn.textContent = 'Send my quote request';
+          var p = d.createElement('p');
+          p.className = 'form-note';
+          p.innerHTML = 'That did not go through. Please call <a href="tel:4353834220">435-383-4220</a> and we will take your details over the phone.';
+          form.appendChild(p);
+        });
+    });
+  })();
+
+  /* META PIXEL: every tap-to-call is marked with data-call, so a Contact or
+     Lead event can be attached here in one place once the pixel is in. */
+})();
+</script>
+</body>
+</html>
