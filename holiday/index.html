@@ -14,15 +14,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
-<!-- ===================================================================
-     META PIXEL GOES HERE.
-     This page is the destination for a paid Meta campaign and there is no
-     pixel on it, so Meta cannot optimize delivery, build a lookalike, or
-     report a single conversion. Paste the base pixel code here and fire a
-     Lead event from the form's success branch and the call buttons (both
-     are marked in the script at the bottom). Willy's pixel id is not on
-     file, so nothing is stubbed in rather than shipping a wrong id.
-     =================================================================== -->
+<!-- Meta Pixel. PASTE THE PIXEL ID IN ONE PLACE: the META_PIXEL_ID constant in
+     the script at the bottom of this file. It is read from there, so there is
+     no second copy here to forget. The pixel ID is public by design; the
+     Conversions API access token is NOT and must never appear in this file.
+     It lives in META_CAPI_TOKEN on the RevMetric server. -->
+
+<!-- RevMetric. Records the visit, the fbclid and the GA cookie, which is what
+     lets a call to (435) 383-4220 later be reported back to Meta as a
+     conversion from this click. It will not touch the number on this page:
+     t.js only rewrites numbers listed in the client's match_numbers, and this
+     page does not contain Willy's base number. -->
+<script async src="https://callflow-eta.vercel.app/t.js" data-client="willys-windows-carpet"></script>
 
 <style>
 :root{
@@ -647,6 +650,61 @@ footer{background:var(--navy);color:#C9CEDB;border-top:1px solid rgba(255,255,25
 </div>
 
 <script>
+/* ---------------------------------------------------------------------------
+   Meta Pixel and RevMetric conversion wiring.
+
+   Two halves that must agree. The browser pixel below fires Lead the moment the
+   form succeeds, and RevMetric fires the same Lead server side from
+   /api/collect/form. Both carry the SAME eventID, so Meta collapses them into
+   one conversion. Drop that and every lead is counted twice.
+
+   Sending both is deliberate. The pixel is immediate but ad blockers and
+   Safari's ITP eat a real share of it; the server copy cannot be blocked. The
+   server copy also carries the caller's phone number on calls, which is the
+   strongest match signal Meta accepts and one no pixel can ever see.
+   --------------------------------------------------------------------------- */
+(function(){
+  /* PASTE THE PIXEL ID HERE. Leave it empty and nothing fires, which is the
+     correct behaviour until there is a real pixel to fire at. */
+  var META_PIXEL_ID = '';
+
+  window.wwcEventId = function(prefix){
+    var r = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+          : String(Date.now()) + '-' + Math.random().toString(16).slice(2);
+    return prefix + '_' + r;
+  };
+
+  /* Read a cookie the pixel sets, so the server copy can match the same person. */
+  window.wwcCookie = function(name){
+    var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return m ? decodeURIComponent(m[2]) : null;
+  };
+
+  if (!META_PIXEL_ID) return;
+
+  /* Meta's standard loader, unmodified. */
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', META_PIXEL_ID);
+  fbq('track', 'PageView');
+
+  /* Tap to call. Every call button and link is marked data-call, so this is the
+     one place it is wired. Contact, not Lead: the tap is intent, and the real
+     Lead is fired server side by RevMetric when the call actually connects,
+     with the caller's number attached. Counting both as Lead would double it. */
+  [].forEach.call(document.querySelectorAll('[data-call]'), function(el){
+    el.addEventListener('click', function(){
+      try { fbq('track', 'Contact', { contact_method: 'phone' }, { eventID: window.wwcEventId('tap') }); } catch(e){}
+    });
+  });
+})();
+</script>
+
+<script>
 (function(){
   var d = document;
 
@@ -750,10 +808,46 @@ footer{background:var(--navy);color:#C9CEDB;border-top:1px solid rgba(255,255,25
       e.preventDefault();
       var btn = d.getElementById('submitBtn');
       btn.disabled = true; btn.textContent = 'Sending...';
-      fetch(form.action, { method:'POST', body:new FormData(form), headers:{ Accept:'application/json' } })
+
+      // One id shared by the browser pixel and RevMetric's server side push,
+      // so Meta counts one conversion instead of two.
+      var eventId = window.wwcEventId ? window.wwcEventId('form') : null;
+      var fd = new FormData(form);
+
+      // RevMetric, so the lead lands in the portal next to the calls and the
+      // server side Lead conversion can fire. Deliberately not awaited and
+      // deliberately not allowed to fail the submit: Willy's Formspree email
+      // is the path that must never break.
+      try {
+        fetch('https://callflow-eta.vercel.app/api/collect/form', {
+          method:'POST', mode:'cors', keepalive:true,
+          headers:{ 'Content-Type':'application/json' },
+          body: JSON.stringify({
+            client: 'willys-windows-carpet',
+            form_name: 'holiday-carpet-lp',
+            page_path: location.pathname,
+            url: location.href,
+            referrer: document.referrer || null,
+            event_id: eventId,
+            fbp: window.wwcCookie ? window.wwcCookie('_fbp') : null,
+            fbc: window.wwcCookie ? window.wwcCookie('_fbc') : null,
+            visitor_id: (window.CallFlow && window.CallFlow.visitorId) || null,
+            fields: {
+              name: fd.get('name') || undefined,
+              phone: fd.get('phone') || undefined,
+              message: fd.get('notes') || undefined,
+              service: fd.get('rooms') ? (fd.get('rooms') + ' rooms, ' + (fd.get('town') || 'town not given')) : undefined
+            }
+          })
+        }).catch(function(){});
+      } catch(err){}
+
+      fetch(form.action, { method:'POST', body:fd, headers:{ Accept:'application/json' } })
         .then(function(r){
           if (!r.ok) throw new Error('bad response');
-          // META PIXEL: fire the Lead event here.
+          try {
+            if (window.fbq) fbq('track', 'Lead', { content_name: 'Holiday carpet quote' }, { eventID: eventId });
+          } catch(e){}
           form.innerHTML =
             '<div class="form-ok"><h3>Got it, thank you.</h3>' +
             '<p>We will come back to you with a time, usually the same day. ' +
@@ -768,9 +862,6 @@ footer{background:var(--navy);color:#C9CEDB;border-top:1px solid rgba(255,255,25
         });
     });
   })();
-
-  /* META PIXEL: every tap-to-call is marked with data-call, so a Contact or
-     Lead event can be attached here in one place once the pixel is in. */
 })();
 </script>
 </body>
