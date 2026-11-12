@@ -65,7 +65,7 @@ h2{font-weight:700;letter-spacing:-.025em}
 h3{font-weight:700;letter-spacing:-.02em;line-height:1.25}
 p{margin:0}
 a{color:var(--accent)}
-.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 var(--s5)}
 
 /* grain, for depth. A repeated 180px tile rather than a full page SVG filter,
    which on a mid range phone is a measurable scroll cost. */
@@ -97,7 +97,7 @@ header{
   position:relative;z-index:10;background:var(--paper);
   border-bottom:1px solid var(--line);
 }
-.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
 .brand img{width:44px;height:44px;border-radius:9px}
 .brand-txt{display:flex;flex-direction:column;line-height:1.2}
@@ -114,9 +114,9 @@ header{
     radial-gradient(820px 520px at 102% 4%, rgba(162,140,92,.10), transparent 60%),
     var(--paper);
 }
-.hero-in{display:grid;gap:var(--s5);padding:var(--s6) 0 var(--s6)}
+.hero-in{display:grid;gap:var(--s5);padding-top:var(--s6);padding-bottom:var(--s6)}
 @media (min-width:980px){
-  .hero-in{grid-template-columns:1.04fr .96fr;align-items:center;gap:var(--s7);padding:var(--s9) 0 var(--s8)}
+  .hero-in{grid-template-columns:1.04fr .96fr;align-items:center;gap:var(--s7);padding-top:var(--s9);padding-bottom:var(--s8)}
 }
 h1{font-size:clamp(34px,8.2vw,58px)}
 .hero p.lede{margin-top:var(--s4);font-size:clamp(17px,4.3vw,20px);max-width:36ch}
@@ -154,7 +154,7 @@ h1{font-size:clamp(34px,8.2vw,58px)}
 .strip{background:var(--navy);color:#fff;position:relative;z-index:2}
 .strip-in{
   display:flex;align-items:center;justify-content:center;gap:var(--s4);
-  padding:var(--s4) 0;text-align:center;flex-wrap:wrap;
+  padding-top:var(--s4);padding-bottom:var(--s4);text-align:center;flex-wrap:wrap;
 }
 .strip b{font-family:Archivo,sans-serif;font-weight:700;color:#fff;font-size:18px;letter-spacing:-.02em}
 .strip span{color:#C9CEDB;font-size:15.5px}
@@ -177,7 +177,7 @@ h2{font-size:clamp(27px,6.4vw,40px)}
 .calc{
   background:var(--card);border:1px solid var(--line);border-top:3px solid var(--edge);
   border-radius:var(--r-lg);box-shadow:var(--sh-2);
-  padding:var(--s5) var(--s4);margin-top:var(--s5);
+  padding:var(--s5);margin-top:var(--s5);
 }
 @media (min-width:560px){ .calc{padding:var(--s6) var(--s5)} }
 @media (min-width:860px){ .calc{padding:var(--s7)} }
@@ -233,9 +233,8 @@ h2{font-size:clamp(27px,6.4vw,40px)}
 @media (min-width:760px){ .vals{grid-template-columns:repeat(2,1fr);gap:var(--s5)} }
 .vals li{
   display:flex;gap:var(--s4);background:var(--card);border:1px solid var(--line);
-  border-radius:var(--r);padding:var(--s4);box-shadow:var(--sh-1);
+  border-radius:var(--r);padding:var(--s5);box-shadow:var(--sh-1);
 }
-@media (min-width:560px){ .vals li{padding:var(--s5)} }
 .vals .tick{
   flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--accent);
   display:flex;align-items:center;justify-content:center;margin-top:2px;
@@ -251,8 +250,7 @@ h2{font-size:clamp(27px,6.4vw,40px)}
 /* ---------- reviews ---------- */
 .revs{display:grid;gap:var(--s4);margin-top:var(--s5);padding:0;list-style:none}
 @media (min-width:760px){ .revs{grid-template-columns:repeat(2,1fr);gap:var(--s5)} }
-.rev{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s4);box-shadow:var(--sh-1)}
-@media (min-width:560px){ .rev{padding:var(--s5)} }
+.rev{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s5);box-shadow:var(--sh-1)}
 .rev-head{display:flex;align-items:center;gap:11px}
 .rev-av{
   width:36px;height:36px;border-radius:50%;background:var(--accent-soft);color:var(--accent-deep);
@@ -272,7 +270,7 @@ h2{font-size:clamp(27px,6.4vw,40px)}
 .form-sec > .wrap > p.sub{color:#C9CEDB}
 .form-grid{display:grid;gap:var(--s6);margin-top:var(--s5)}
 @media (min-width:920px){ .form-grid{grid-template-columns:1.1fr .9fr;gap:var(--s7);align-items:start} }
-form{background:var(--card);border-radius:var(--r-lg);padding:var(--s4);box-shadow:var(--sh-3)}
+form{background:var(--card);border-radius:var(--r-lg);padding:var(--s5);box-shadow:var(--sh-3)}
 @media (min-width:560px){ form{padding:var(--s6)} }
 .field{display:flex;flex-direction:column;gap:7px;margin-bottom:var(--s4)}
 .field label{font-family:Archivo,sans-serif;font-weight:600;font-size:14.5px;color:var(--ink)}
@@ -325,13 +323,13 @@ footer{background:var(--navy);color:#C9CEDB;border-top:1px solid rgba(255,255,25
 .ft-list a{display:inline-block;padding:9px 0}
 .ft-base{
   display:flex;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;
-  padding:var(--s4) 0 var(--s6);border-top:1px solid rgba(255,255,255,.1);font-size:14px;
+  padding-top:var(--s4);padding-bottom:var(--s6);border-top:1px solid rgba(255,255,255,.1);font-size:14px;
 }
 
 /* ---------- sticky mobile call bar ---------- */
 .callbar{
   position:fixed;left:0;right:0;bottom:0;z-index:40;
-  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  padding:10px var(--s4) calc(10px + env(safe-area-inset-bottom));
   background:rgba(251,247,240,.94);
   -webkit-backdrop-filter:saturate(1.3) blur(10px);backdrop-filter:saturate(1.3) blur(10px);
   border-top:1px solid var(--line);
