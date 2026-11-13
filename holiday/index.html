@@ -14,17 +14,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
-<!-- Meta Pixel. PASTE THE PIXEL ID IN ONE PLACE: the META_PIXEL_ID constant in
-     the script at the bottom of this file. It is read from there, so there is
-     no second copy here to forget. The pixel ID is public by design; the
-     Conversions API access token is NOT and must never appear in this file.
-     It lives in META_CAPI_TOKEN on the RevMetric server. -->
+<!-- Meta Pixel. The id is set once in assets/meta-pixel.js, shared by this page
+     and the whole site. The Conversions API access token is a different thing and
+     must never appear in any file served to a browser: it lives in META_CAPI_TOKEN
+     on the RevMetric server. -->
 
 <!-- RevMetric. Records the visit, the fbclid and the GA cookie, which is what
      lets a call to (435) 383-4220 later be reported back to Meta as a
      conversion from this click. It will not touch the number on this page:
      t.js only rewrites numbers listed in the client's match_numbers, and this
      page does not contain Willy's base number. -->
+<script src="../assets/meta-pixel.js" defer></script>
 <script async src="https://callflow-eta.vercel.app/t.js" data-client="willys-windows-carpet"></script>
 
 <style>
@@ -648,61 +648,6 @@ footer{background:var(--navy);color:#C9CEDB;border-top:1px solid rgba(255,255,25
   <a class="btn btn-primary" href="tel:4353834220" data-call>Call 435-383-4220</a>
   <a class="btn btn-ghost" href="#quote">Free quote</a>
 </div>
-
-<script>
-/* ---------------------------------------------------------------------------
-   Meta Pixel and RevMetric conversion wiring.
-
-   Two halves that must agree. The browser pixel below fires Lead the moment the
-   form succeeds, and RevMetric fires the same Lead server side from
-   /api/collect/form. Both carry the SAME eventID, so Meta collapses them into
-   one conversion. Drop that and every lead is counted twice.
-
-   Sending both is deliberate. The pixel is immediate but ad blockers and
-   Safari's ITP eat a real share of it; the server copy cannot be blocked. The
-   server copy also carries the caller's phone number on calls, which is the
-   strongest match signal Meta accepts and one no pixel can ever see.
-   --------------------------------------------------------------------------- */
-(function(){
-  /* PASTE THE PIXEL ID HERE. Leave it empty and nothing fires, which is the
-     correct behaviour until there is a real pixel to fire at. */
-  var META_PIXEL_ID = '';
-
-  window.wwcEventId = function(prefix){
-    var r = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
-          : String(Date.now()) + '-' + Math.random().toString(16).slice(2);
-    return prefix + '_' + r;
-  };
-
-  /* Read a cookie the pixel sets, so the server copy can match the same person. */
-  window.wwcCookie = function(name){
-    var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-    return m ? decodeURIComponent(m[2]) : null;
-  };
-
-  if (!META_PIXEL_ID) return;
-
-  /* Meta's standard loader, unmodified. */
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-  fbq('init', META_PIXEL_ID);
-  fbq('track', 'PageView');
-
-  /* Tap to call. Every call button and link is marked data-call, so this is the
-     one place it is wired. Contact, not Lead: the tap is intent, and the real
-     Lead is fired server side by RevMetric when the call actually connects,
-     with the caller's number attached. Counting both as Lead would double it. */
-  [].forEach.call(document.querySelectorAll('[data-call]'), function(el){
-    el.addEventListener('click', function(){
-      try { fbq('track', 'Contact', { contact_method: 'phone' }, { eventID: window.wwcEventId('tap') }); } catch(e){}
-    });
-  });
-})();
-</script>
 
 <script>
 (function(){
