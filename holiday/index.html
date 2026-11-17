@@ -154,7 +154,7 @@ h1{font-size:clamp(34px,8.2vw,58px)}
 .shot figcaption b{display:block;font-family:Archivo,sans-serif;font-weight:700;font-size:18px;letter-spacing:-.02em}
 
 /* ---------- countdown strip ---------- */
-.strip{background:var(--navy);color:#fff;position:relative;z-index:2}
+.strip{background:var(--navy);color:#fff;position:relative;z-index:2;border-bottom:1px solid rgba(255,255,255,.1)}
 .strip-in{
   display:flex;align-items:center;justify-content:center;gap:var(--s4);
   padding-top:var(--s4);padding-bottom:var(--s4);text-align:center;flex-wrap:wrap;
@@ -167,6 +167,13 @@ h1{font-size:clamp(34px,8.2vw,58px)}
   padding:6px 14px;border-radius:var(--r-pill);
 }
 .cd i{font-style:normal;font-family:Archivo,sans-serif;font-weight:800;font-size:20px;color:#fff}
+.cd-item{display:inline-flex;align-items:center;gap:10px}
+.cd-item[hidden],#cdFallback[hidden]{display:none}
+.cd-emoji{font-size:24px;line-height:1}
+@media (min-width:720px){
+  .cd-item + .cd-item{padding-left:var(--s5);border-left:1px solid rgba(255,255,255,.18)}
+  .strip-in{gap:var(--s5)}
+}
 
 /* ---------- sections ---------- */
 section{position:relative}
@@ -231,27 +238,10 @@ h2{font-size:clamp(27px,6.4vw,40px)}
 .step-total span{font-size:14.5px;color:var(--muted)}
 .fine{margin-top:var(--s4);font-size:14.5px;color:var(--muted);line-height:1.6}
 
-/* ---------- value list ---------- */
-.vals{display:grid;gap:var(--s4);margin-top:var(--s5);padding:0;list-style:none}
-@media (min-width:760px){ .vals{grid-template-columns:repeat(2,1fr);gap:var(--s5)} }
-.vals li{
-  display:flex;gap:var(--s4);background:var(--card);border:1px solid var(--line);
-  border-radius:var(--r);padding:var(--s5);box-shadow:var(--sh-1);
-}
-.vals .tick{
-  flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--accent);
-  display:flex;align-items:center;justify-content:center;margin-top:2px;
-}
-.vals .tick svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
-.vals h3{font-size:17.5px}
-.vals p{margin-top:5px;font-size:15.5px;line-height:1.65}
-
-/* ---------- proof photos ---------- */
-.shots{display:grid;gap:var(--s5);margin-top:var(--s5);align-items:start}
-@media (min-width:760px){ .shots{grid-template-columns:repeat(2,1fr)} }
-
 /* ---------- reviews ---------- */
-.revs{display:grid;gap:var(--s4);margin-top:var(--s5);padding:0;list-style:none}
+.sec-thin{padding:var(--s5) 0}
+@media (min-width:980px){ .sec-thin{padding:var(--s6) 0} }
+.revs{display:grid;gap:var(--s4);margin:0;padding:0;list-style:none}
 @media (min-width:760px){ .revs{grid-template-columns:repeat(2,1fr);gap:var(--s5)} }
 .rev{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s5);box-shadow:var(--sh-1)}
 .rev-head{display:flex;align-items:center;gap:11px}
@@ -265,7 +255,7 @@ h2{font-size:clamp(27px,6.4vw,40px)}
 .rev-who span{font-size:13.5px;color:var(--muted)}
 .rev .stars{font-size:14px;margin-top:var(--s3)}
 .rev p{margin-top:var(--s2);font-size:15.5px;line-height:1.68}
-.rev-foot{margin-top:var(--s5);font-size:15px;color:var(--muted)}
+.rev-foot{margin-top:var(--s4);font-size:15px;color:var(--muted)}
 
 /* ---------- form ---------- */
 .form-sec{background:var(--navy);color:#fff}
@@ -361,7 +351,7 @@ footer{background:var(--navy);color:#C9CEDB;border-top:1px solid rgba(255,255,25
         <span>Cedar City, Utah</span>
       </span>
     </a>
-    <a class="btn btn-primary hd-call" href="tel:4353834220" data-call>435-383-4220</a>
+    <a class="btn btn-primary hd-call" href="tel:4353834220" data-call>Call Us!</a>
   </div>
 </header>
 
@@ -384,11 +374,11 @@ footer{background:var(--navy);color:#C9CEDB;border-top:1px solid rgba(255,255,25
         </div>
 
         <div class="cta-row">
-          <a class="btn btn-primary btn-lg" href="tel:4353834220" data-call>
+          <a class="btn btn-primary btn-lg" href="#quote">Book Now!</a>
+          <a class="btn btn-ghost btn-lg" href="tel:4353834220" data-call>
             <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-            Call 435-383-4220
+            Call Us!
           </a>
-          <a class="btn btn-ghost btn-lg" href="#quote">Get a free quote</a>
         </div>
         <p class="cta-note">Free quote, no deposit and no obligation. We usually reply the same day.</p>
       </div>
@@ -407,8 +397,103 @@ footer{background:var(--navy);color:#C9CEDB;border-top:1px solid rgba(255,255,25
 
   <section class="strip">
     <div class="wrap strip-in">
-      <span class="cd" id="cdWrap" hidden><i id="cdDays">0</i> <span id="cdUnit">days</span></span>
-      <b id="cdLabel">The calendar fills up fast before the holidays</b>
+      <div class="cd-item" data-holiday="Thanksgiving" data-date="2026-11-26" hidden>
+        <span class="cd-emoji" aria-hidden="true">&#x1F983;</span>
+        <span class="cd"><i class="cd-days">0</i> <span class="cd-unit">days</span></span>
+        <b class="cd-label">until Thanksgiving</b>
+      </div>
+      <div class="cd-item" data-holiday="Christmas" data-date="2026-12-25" hidden>
+        <span class="cd-emoji" aria-hidden="true">&#x1F384;</span>
+        <span class="cd"><i class="cd-days">0</i> <span class="cd-unit">days</span></span>
+        <b class="cd-label">until Christmas</b>
+      </div>
+      <b id="cdFallback">The calendar fills up fast before the holidays</b>
+    </div>
+  </section>
+
+  <section class="sec form-sec" id="quote">
+    <div class="wrap">
+      <h2>Leave us your info and we'll call you with a quote and a time!</h2>
+
+      <div class="form-grid">
+        <form id="quoteForm" action="https://formspree.io/f/xnpjggwb" method="POST">
+          <input type="hidden" name="_subject" value="Holiday carpet quote (Meta ad landing page)">
+          <input type="hidden" name="source" value="Holiday Meta ad landing page">
+          <div class="hp" aria-hidden="true">
+            <label for="_gotcha">Leave this empty</label>
+            <input id="_gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="435-555-0100" required>
+            </div>
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="rooms">How many rooms</label>
+              <input id="rooms" name="rooms" type="number" min="1" max="30" step="1" value="6" inputmode="numeric" required>
+            </div>
+            <div class="field">
+              <label for="town">Town</label>
+              <input id="town" name="town" type="text" autocomplete="address-level2" placeholder="Cedar City">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="notes">Anything we should know</label>
+            <textarea id="notes" name="notes" placeholder="Stairs, pet stains, a date you are working towards."></textarea>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-block" type="submit" id="submitBtn">Book Now!</button>
+          <p class="form-note">We usually call back the same day. If the form gives you any trouble, call <a href="tel:4353834220" data-call>435-383-4220</a> and we will take your details over the phone.</p>
+        </form>
+
+        <aside class="aside-call">
+          <h3>Rather just call?</h3>
+          <p>Quotes over the phone take a couple of minutes. We will walk the job with you and give you the number before you commit to anything.</p>
+          <a class="aside-num" href="tel:4353834220" data-call>435-383-4220</a>
+          <ul class="aside-list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>$50 a room, quoted before we start</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Cedar City and Iron County</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Carpet, tile and upholstery</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>5.0 from 20 Google reviews</span></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-thin band" aria-label="Customer reviews">
+    <div class="wrap">
+      <ul class="revs">
+        <li class="rev">
+          <div class="rev-head">
+            <span class="rev-av" aria-hidden="true">A</span>
+            <span class="rev-who"><b>Adriana Gervasoni</b><span class="rv-date" data-t="1788042272"></span></span>
+          </div>
+          <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>Fast and efficient carpet cleaning! The best price you will find in cedar city. Did a great job !</p>
+        </li>
+        <li class="rev">
+          <div class="rev-head">
+            <span class="rev-av" aria-hidden="true">V</span>
+            <span class="rev-who"><b>Virene Shaffer</b><span class="rv-date" data-t="1791996125"></span></span>
+          </div>
+          <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>These guys are the best in town! So professional and great pricing. They cleaned my couches and carpets and they look brand new!</p>
+        </li>
+      </ul>
+      <p class="rev-foot">
+        5.0 across
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Google&amp;query_place_id=ChIJ84gx9CuwakkRn_tHUdso5xY" target="_blank" rel="noopener">20 Google reviews</a>.
+      </p>
     </div>
   </section>
 
@@ -454,169 +539,13 @@ footer{background:var(--navy);color:#C9CEDB;border-top:1px solid rgba(255,255,25
           </p>
         </div>
 
-        <a class="btn btn-primary btn-lg btn-block" href="tel:4353834220" data-call style="margin-top:var(--s6)">
-          Call for your spot
+        <a class="btn btn-primary btn-lg btn-block" href="#quote" style="margin-top:var(--s6)">
+          Book Now!
         </a>
       </div>
     </div>
   </section>
 
-  <section class="sec band">
-    <div class="wrap">
-      <h2>What you are paying for</h2>
-      <ul class="vals">
-        <li>
-          <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
-          <div>
-            <h3>A real steam clean</h3>
-            <p>Hot water extraction that pulls the stains, grime and soil up and out of the pile, rather than scrubbing them further in.</p>
-          </div>
-        </li>
-        <li>
-          <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
-          <div>
-            <h3>Soft water on every job</h3>
-            <p>Cedar City water is hard enough to leave residue behind that attracts dirt straight back. We run soft water on every job, so the carpet stays clean after we leave.</p>
-          </div>
-        </li>
-        <li>
-          <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
-          <div>
-            <h3>A price before we start</h3>
-            <p>You know the number when you book. No deposit and nothing to sign, so you can decide with the price in front of you.</p>
-          </div>
-        </li>
-        <li>
-          <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
-          <div>
-            <h3>Someone local</h3>
-            <p>Willy's is a Cedar City business with 20 five star Google reviews from your neighbors, not a franchise routing your call to a call center.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="wrap">
-      <h2>What it actually looks like</h2>
-      <p class="sub">Both of these are Willy's own work, not stock photography.</p>
-      <div class="shots">
-        <figure class="shot rise" style="margin:0">
-          <img src="../assets/ba-rug.webp" alt="The same rug before and after cleaning, the cleaned half visibly brighter" width="800" height="600" loading="lazy">
-          <figcaption><b>Before and after</b>The same rug, one pass apart.</figcaption>
-        </figure>
-        <figure class="shot rise" style="margin:0">
-          <img src="../assets/carpet-half-clean.webp" alt="A bedroom carpet part way through a steam clean" width="800" height="600" loading="lazy">
-          <figcaption><b>Part way through</b>A job in progress, straight off his camera.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec band">
-    <div class="wrap">
-      <h2>Your neighbors have already booked him</h2>
-      <ul class="revs">
-        <li class="rev">
-          <div class="rev-head">
-            <span class="rev-av" aria-hidden="true">A</span>
-            <span class="rev-who"><b>Adriana Gervasoni</b><span class="rv-date" data-t="1788042272"></span></span>
-          </div>
-          <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>Fast and efficient carpet cleaning! The best price you will find in cedar city. Did a great job !</p>
-        </li>
-        <li class="rev">
-          <div class="rev-head">
-            <span class="rev-av" aria-hidden="true">D</span>
-            <span class="rev-who"><b>Dante Vega-Lopez</b><span class="rv-date" data-t="1780503133"></span></span>
-          </div>
-          <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>Will is awesome! Super great to work with personally and professionally. He managed to get the dog pee stains out of my carpets.</p>
-        </li>
-        <li class="rev">
-          <div class="rev-head">
-            <span class="rev-av" aria-hidden="true">M</span>
-            <span class="rev-who"><b>Macon Lealao</b><span class="rv-date" data-t="1788043967"></span></span>
-          </div>
-          <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>So happy with my experience with Willys! Austin came and cleaned my sofa and rug and I was blown away by how clean he got them! My sofa was so stained from my kids we were about to throw it away and figured we had nothing to lose by getting it professionally cleaned. Honestly my expectations were low and I was SO HAPPY with the results. Worth every penny</p>
-        </li>
-        <li class="rev">
-          <div class="rev-head">
-            <span class="rev-av" aria-hidden="true">V</span>
-            <span class="rev-who"><b>Virene Shaffer</b><span class="rv-date" data-t="1791996125"></span></span>
-          </div>
-          <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>These guys are the best in town! So professional and great pricing. They cleaned my couches and carpets and they look brand new!</p>
-        </li>
-      </ul>
-      <p class="rev-foot">
-        5.0 across
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=Google&amp;query_place_id=ChIJ84gx9CuwakkRn_tHUdso5xY" target="_blank" rel="noopener">20 Google reviews</a>.
-      </p>
-    </div>
-  </section>
-
-  <section class="sec form-sec" id="quote">
-    <div class="wrap">
-      <h2>Get your holiday spot</h2>
-      <p class="sub">Tell us how many rooms and we will come back with a time. Calling is fastest if you want a specific day.</p>
-
-      <div class="form-grid">
-        <form id="quoteForm" action="https://formspree.io/f/xnpjggwb" method="POST">
-          <input type="hidden" name="_subject" value="Holiday carpet quote (Meta ad landing page)">
-          <input type="hidden" name="source" value="Holiday Meta ad landing page">
-          <div class="hp" aria-hidden="true">
-            <label for="_gotcha">Leave this empty</label>
-            <input id="_gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
-          </div>
-
-          <div class="row2">
-            <div class="field">
-              <label for="name">Your name</label>
-              <input id="name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required>
-            </div>
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="435-555-0100" required>
-            </div>
-          </div>
-
-          <div class="row2">
-            <div class="field">
-              <label for="rooms">How many rooms</label>
-              <input id="rooms" name="rooms" type="number" min="1" max="30" step="1" value="6" inputmode="numeric" required>
-            </div>
-            <div class="field">
-              <label for="town">Town</label>
-              <input id="town" name="town" type="text" autocomplete="address-level2" placeholder="Cedar City">
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="notes">Anything we should know</label>
-            <textarea id="notes" name="notes" placeholder="Stairs, pet stains, a date you are working towards."></textarea>
-          </div>
-
-          <button class="btn btn-primary btn-lg btn-block" type="submit" id="submitBtn">Send my quote request</button>
-          <p class="form-note">We usually reply the same day. If the form gives you any trouble, call <a href="tel:4353834220" data-call>435-383-4220</a> and we will take your details over the phone.</p>
-        </form>
-
-        <aside class="aside-call">
-          <h3>Rather just call?</h3>
-          <p>Quotes over the phone take a couple of minutes. We will walk the job with you and give you the number before you commit to anything.</p>
-          <a class="aside-num" href="tel:4353834220" data-call>435-383-4220</a>
-          <ul class="aside-list">
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>$50 a room, quoted before we start</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Cedar City and Iron County</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Carpet, tile and upholstery</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>5.0 from 20 Google reviews</span></li>
-          </ul>
-        </aside>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -645,8 +574,8 @@ footer{background:var(--navy);color:#C9CEDB;border-top:1px solid rgba(255,255,25
 </footer>
 
 <div class="callbar">
-  <a class="btn btn-primary" href="tel:4353834220" data-call>Call 435-383-4220</a>
-  <a class="btn btn-ghost" href="#quote">Free quote</a>
+  <a class="btn btn-primary" href="#quote">Book Now!</a>
+  <a class="btn btn-ghost" href="tel:4353834220" data-call>Call Us!</a>
 </div>
 
 <script>
@@ -668,27 +597,28 @@ footer{background:var(--navy);color:#C9CEDB;border-top:1px solid rgba(255,255,25
   /* ---- countdown ------------------------------------------------------
      A real date, not a fake timer. It counts to whichever holiday is next
      and hides itself once the last one passes, so the page can never claim
-     urgency it cannot back up. Update HOLIDAYS for next season. */
-  var HOLIDAYS = [
-    { name:'Thanksgiving', date:'2026-11-26' },
-    { name:'Christmas',    date:'2026-12-25' }
-  ];
+     urgency it cannot back up. Each .cd-item in the strip carries its own
+     data-date; update those for next season. */
   (function(){
-    var wrap = d.getElementById('cdWrap'), label = d.getElementById('cdLabel');
-    if (!wrap || !label) return;
+    var items = d.querySelectorAll('.cd-item'), fallback = d.getElementById('cdFallback');
     var today = new Date(); today.setHours(0,0,0,0);
-    for (var i = 0; i < HOLIDAYS.length; i++) {
-      var p = HOLIDAYS[i].date.split('-');
+    var shown = 0;
+    [].forEach.call(items, function(el){
+      var p = el.getAttribute('data-date').split('-');
       var when = new Date(+p[0], +p[1] - 1, +p[2]);
       var days = Math.round((when - today) / 86400000);
-      if (days < 0) continue;
-      if (days === 0) { label.textContent = HOLIDAYS[i].name + ' is today'; return; }
-      d.getElementById('cdDays').textContent = days;
-      d.getElementById('cdUnit').textContent = days === 1 ? 'day' : 'days';
-      label.textContent = 'until ' + HOLIDAYS[i].name;
-      wrap.hidden = false;
-      return;
-    }
+      if (days < 0) return;
+      var name = el.getAttribute('data-holiday');
+      if (days === 0) {
+        el.querySelector('.cd').hidden = true;
+        el.querySelector('.cd-label').textContent = name + ' is today';
+      } else {
+        el.querySelector('.cd-days').textContent = days;
+        el.querySelector('.cd-unit').textContent = days === 1 ? 'day' : 'days';
+      }
+      el.hidden = false; shown++;
+    });
+    if (shown && fallback) fallback.hidden = true;
   })();
 
   /* ---- room stepper ---- */
@@ -799,7 +729,7 @@ footer{background:var(--navy);color:#C9CEDB;border-top:1px solid rgba(255,255,25
             'If you would rather lock a day in now, call <a href="tel:4353834220">435-383-4220</a>.</p></div>';
         })
         .catch(function(){
-          btn.disabled = false; btn.textContent = 'Send my quote request';
+          btn.disabled = false; btn.textContent = 'Book Now!';
           var p = d.createElement('p');
           p.className = 'form-note';
           p.innerHTML = 'That did not go through. Please call <a href="tel:4353834220">435-383-4220</a> and we will take your details over the phone.';
